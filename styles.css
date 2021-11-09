@@ -46,3 +46,43 @@ a:hover {
   height: 100vh;
   text-align: center;
 }
+form {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
+  margin: auto;
+  width: fit-content;
+}
+
+.form-element {
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px 10px;
+  outline: none;
+  border: none;
+  margin: 10px 0px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.submitBtn {
+  background-color: blue;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 25px;
+  width: 100%;
+}
+
+.submitBtn:hover {
+  background-color: darkblue;
+  cursor: pointer;
+}
+
+.submitBtn:focus {
+  background-color: darkblue;
+  outline-offset: 5px;
+  outline: 3px solid darkblue;
+}

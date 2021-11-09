@@ -26,13 +26,26 @@ class Post {
         return $result;
     }
 
-    static function create() {
+    static function create($authorid, $title, $pub_year, $genre) {
 
         $db = Database::connect();
+        session_start();
 
-        // $sql = "SELECT * FROM books WHERE id=$id";
-        // $result = $db->query($sql);
-        // return $result;
+        $sql = "INSERT INTO books (authorid, title, pub_year, genre) VALUES (
+            '$authorid',
+            '$title',
+            '$pub_year',
+            '$genre'
+            )";
+        
+        $result = $db->query($sql);
+        if(!$result){
+            die("Failed to Insert...");
+            $_SESSION['error'] = "Insert Failed";
+        } else {
+            $_SESSION['success'] = "Insert Successful";
+            return $result;
+        }
     }
 
     static function store() {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>PHP REST API</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Index Page</h1>
+    </div>
+    <nav>
+        <div class="container">
+            <a href="index.php">Index</a>
+            <a href="create.php">New Book</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Book List</h2>
+   
+        <?php
+        foreach ($response['data'] as $row) {
+            echo $row['title'] . "<br>";
+            echo $row['authorid'] . '<br>';
+            echo $row['pub_year'] . '<br>';
+            echo $row['genre'] . '<br>';
+            echo "<hr>";
+            
+        }
+
+    ?>
+
+    <a href="index.php">Go back</a>
+    </div>
+
+</body>
+</html>
