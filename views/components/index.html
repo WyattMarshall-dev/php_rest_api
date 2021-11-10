@@ -8,29 +8,35 @@
     <title>PHP REST API</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Index Page</h1>
-    </div>
     <nav>
+        <h1>Index Page</h1>
         <div class="container">
             <a href="index.php">Index</a>
             <a href="create.php">New Book</a>
         </div>
     </nav>
-    <div class="container">
+    
+    <div class="container" id="main-content">
         <h2>Book List</h2>
-    <?php
-        foreach ($response['data'] as $row) {
-            echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
-            echo $row['authorid'] . '<br>';
-            echo $row['pub_year'] . '<br>';
-            echo $row['genre'] . '<br>';
-            echo "<hr>";
-            
-        }
-
-    ?>
+        <div class="grid">
+            <?php
+                foreach ($response['data'] as $row) {
+                    echo "<div class='card'>";
+                        echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
+                        echo "<p>" . $row['author'] . '</p>';
+                        echo "<p>" . $row['pub_year'] . '</p>';
+                        echo "<p>" . $row['genre'] . '</p>';
+                    echo "</div>";   
+                }
+            ?>
+        </div>
     </div>
+
+    <footer>
+        <div class="container">
+            I am NOT a graphics designer....
+        </div>
+    </footer>
 
 </body>
 </html>

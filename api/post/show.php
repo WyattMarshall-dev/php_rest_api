@@ -1,5 +1,4 @@
 <?php
-    // Check to see if these are necessary
     header('Access-Control-Allow-Origin: *');
     header('Content-Tyoe: application/json');
 

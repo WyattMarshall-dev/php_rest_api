@@ -8,24 +8,26 @@
     <title>PHP REST API</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Index Page</h1>
-    </div>
     <nav>
+        <h1>Index Page</h1>
         <div class="container">
             <a href="index.php">Index</a>
             <a href="create.php">New Book</a>
         </div>
     </nav>
+
     <div class="container">
-        <h2>Book List</h2>
+        <h2>Book Details</h2>
    
         <?php
         foreach ($response['data'] as $row) {
+            echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' alt=''><br>";
             echo $row['title'] . "<br>";
-            echo $row['authorid'] . '<br>';
+            echo $row['author'] . '<br>';
             echo $row['pub_year'] . '<br>';
-            echo $row['genre'] . '<br>';
+            echo $row['genre'] . '<br><br>';
+            echo "<a href=" . "edit.php?id={$row['id']}" . ">Edit</a> | ";
+            echo "<a href=" . "../api/post/destroy.php?id={$row['id']}" . ">Delete</a>";
             echo "<hr>";
             
         }
@@ -34,6 +36,12 @@
 
     <a href="index.php">Go back</a>
     </div>
+
+    <footer>
+        <div class="container">
+            I am NOT a graphics designer....
+        </div>
+    </footer>
 
 </body>
 </html>
