@@ -106,6 +106,7 @@ input:focus-visible {
 
 .grid {
   display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
   /* grid-gap: 15px; */
 }
 
@@ -118,7 +119,14 @@ input:focus-visible {
   /* border-radius: 15px; */
   min-height: 200px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.card > img {
+  padding: 0px 25px;
+}
+
+.card-flex {
 }
 
 .card:first-child {

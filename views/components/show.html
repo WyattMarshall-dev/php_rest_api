@@ -21,7 +21,7 @@
    
         <?php
         foreach ($response['data'] as $row) {
-            echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' alt=''><br>";
+            echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''><br>";
             echo $row['title'] . "<br>";
             echo $row['author'] . '<br>';
             echo $row['pub_year'] . '<br>';

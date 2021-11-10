@@ -37,8 +37,7 @@ class Post {
         
         $result = $db->query($sql);
         if(!$result){
-            die("Failed to Insert...");
-            $_SESSION['error'] = "Insert Failed";
+            header("Location: http://localhost/Projects/REST_API/views/500.php");
         } else {
             $_SESSION['success'] = "Insert Successful";
             return $result;
@@ -73,8 +72,7 @@ class Post {
         
         $result = $db->query($sql);
         if(!$result){
-            die("Failed to Insert...");
-            $_SESSION['error'] = "Insert Failed";
+            header("Location: http://localhost/Projects/REST_API/views/500.php");
         } else {
             $_SESSION['success'] = "Insert Successful";
             return $result;

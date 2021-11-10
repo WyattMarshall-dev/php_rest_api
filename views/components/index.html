@@ -22,10 +22,13 @@
             <?php
                 foreach ($response['data'] as $row) {
                     echo "<div class='card'>";
-                        echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
-                        echo "<p>" . $row['author'] . '</p>';
-                        echo "<p>" . $row['pub_year'] . '</p>';
-                        echo "<p>" . $row['genre'] . '</p>';
+                        echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
+                        echo "<div class='card-flex'>";
+                            echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
+                            echo "<p>" . $row['author'] . '</p>';
+                            echo "<p>" . $row['pub_year'] . '</p>';
+                            echo "<p>" . $row['genre'] . '</p>';
+                        echo "</div>";
                     echo "</div>";   
                 }
             ?>
