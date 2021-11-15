@@ -8,6 +8,6 @@ $response = json_decode($get_data, true);
 if ($response == NULL) {
     echo "nothing to display";
 } else {
-    include("components/index.html");
+    include("components/index.php");
 }
 ?>

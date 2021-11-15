@@ -1,15 +1,15 @@
 <?php
-session_start();
+// session_start();
 
-    if(isset($_SESSION['success'])){
-        echo $_SESSION['success'];
-        $_SESSION['success'] = null;
-        session_destroy();
-    } else if (isset($_SESSION['error'])){
-        echo $_SESSION['error'];
-        $_SESSION['error'] = null;
-        session_destroy();
-    }
+//     if(isset($_SESSION['success'])){
+//         echo $_SESSION['success'];
+//         $_SESSION['success'] = null;
+//         session_destroy();
+//     } else if (isset($_SESSION['error'])){
+//         echo $_SESSION['error'];
+//         $_SESSION['error'] = null;
+//         session_destroy();
+//     }
 ?>
 
 <!DOCTYPE html>

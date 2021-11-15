@@ -32,8 +32,14 @@ nav {
   margin-bottom: 30px;
 }
 
-nav > .container > a {
+#navbar a,
+#navbar p {
   color: #ccc;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
 }
 
 a:hover {
@@ -141,4 +147,8 @@ footer {
   margin-top: 50px;
   padding: 25px;
   background: black;
+}
+
+footer > div > p {
+  color: white;
 }

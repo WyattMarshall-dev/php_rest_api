@@ -12,14 +12,29 @@ class Post {
         return $result;
     }
 
-    static function show($id) {
+    static function show($id = null, $genre = null, $author = null) {
 
         $db = Database::connect();
 
-        $sql = "SELECT * FROM books WHERE id=$id";
-        $result = $db->query($sql);
-        return $result;
+        if($id) {
+            $sql = "SELECT * FROM books WHERE id=$id";
+            $result = $db->query($sql);
+            return $result;
+        }
+
+        if($genre) {
+            $sql = "SELECT * FROM books WHERE genre='$genre'";
+            $result = $db->query($sql);
+            return $result;
+        }
+
+        if($author) {
+            $sql = "SELECT * FROM books WHERE author='$author'";
+            $result = $db->query($sql);
+            return $result;
+        }
     }
+
 
     static function create($isbn, $author, $title, $pub_year, $genre, $thumbnail) {
 
@@ -48,7 +63,7 @@ class Post {
     static function store() {
 
         $db = Database::connect();
-
+        
         // $sql = "SELECT * FROM books WHERE id=$id";
         // $result = $db->query($sql);
         // return $result;
@@ -59,7 +74,6 @@ class Post {
         $db = Database::connect();
         session_start();
 
-        
         $sql = "UPDATE books SET
             isbn='$isbn',
             author='$author',
@@ -69,7 +83,6 @@ class Post {
             thumbnail='$thumbnail'
         WHERE id=$id";
 
-        
         $result = $db->query($sql);
         if(!$result){
             header("Location: http://localhost/Projects/REST_API/views/500.php");

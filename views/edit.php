@@ -49,6 +49,7 @@ $data = $response['data'][0];
             <input type="text" name="genre" id="genre" class="form-element" value="<?php echo $data['genre'] ?>" placeholder="Genre" >  
             <br>    
             <p>Select image to upload:</p>
+            <input type="hidden" name="currentFile" id="currentFile" value="<?php echo $data['thumbnail'] ?>">
             <input type="file" name="fileToUpload" id="fileToUpload">
             <br><br>
             <input type="submit" class="submitBtn" value="Add Book">

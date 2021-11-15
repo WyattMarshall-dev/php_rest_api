@@ -10,9 +10,17 @@
 <body>
     <nav>
         <h1>Index Page</h1>
-        <div class="container">
-            <a href="index.php">Index</a>
-            <a href="create.php">New Book</a>
+        <div class="container" id="navbar">
+            <div>
+                <a href="index.php">Index</a>
+                <a href="create.php">New Book</a>
+            </div>
+            <div>
+                <p>Categories: </p>
+                <a href='show.php?category=fiction'>Fiction</a>
+                <a href='show.php?category=non%20Fiction'>Non-Fiction</a>
+                <a href='show.php?category=biographies'>Biographies</a>
+            </div>
         </div>
     </nav>
     
@@ -37,7 +45,7 @@
 
     <footer>
         <div class="container">
-            I am NOT a graphics designer....
+            <p>I am NOT a graphics designer....</p>
         </div>
     </footer>
 
