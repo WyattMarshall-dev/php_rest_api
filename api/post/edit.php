@@ -18,8 +18,6 @@ if (isset($_POST)){
         $file = null;
     }    
 
-
-
     $result = Post::edit(
         $_POST['id'],
         $_POST['isbn'],

@@ -9,43 +9,90 @@
 </head>
 <body>
     <nav>
-        <?php 
-        ?>
-        <h1>Index Page</h1>
         <div class="container" id="navbar">
             <div>
-                <a href="index.php">Index</a>
-                <a href="create.php">New Book</a>
+                <h1><a href="index.php" id="logo">Library</a> </h1>   
             </div>
             <div>
-                <p>Categories: </p>
-                <a href='index.php?category=fiction'>Fiction</a>
-                <a href='index.php?category=non-Fiction'>Non-Fiction</a>
-                <a href='index.php?category=biographies'>Biographies</a>
+                <a href="create.php">Add Book</a>
             </div>
         </div>
     </nav>
     
     <div class="container" id="main-content">
-        <h2>Book List</h2>
-        <div class="grid">
-            <?php
-            if (!$response || $response['information']['ObjectCount'] < 1) {
-                echo "There are no results...<br>";
-            } else {
-                foreach ($response['data'] as $row) {
-                    echo "<div class='card'>";
-                        echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
-                        echo "<div class='card-flex'>";
-                            echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
-                            echo "<p>" . $row['author'] . '</p>';
-                            echo "<p>" . $row['pub_year'] . '</p>';
-                            echo "<p>" . $row['genre'] . '</p>';
-                        echo "</div>";
-                    echo "</div>";   
+
+        <div id="content-wrapper">
+            <div>
+                <form id="sidebarForm" action="submit.php" method="post">
+                    <p>Authors:</p>
+                    <div class="input-group">
+                        <input type="radio" name="author" id="all" value="">
+                        <label for="author1">All</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="author" id="author1" value="JK Rowling">
+                        <label for="author1">JK Rowling</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="author" id="author2" value="Charles Dickens">
+                        <label for="author2">Charles Dickens</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="author" id="author2" value="Andrew Roberts">
+                        <label for="author3">Andrew Roberts</label>
+                    </div>
+
+
+                    <p>Genres:</p>
+                    <div class="input-group">
+                        <input type="radio" name="category" id="all" value="">
+                        <label for="category1">All</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="category" id="category1" value="Fiction">
+                        <label for="category1">Fiction</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="category" id="category2" value="Non-Fiction">
+                        <label for="category2">Non-Fiction</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="radio" name="category" id="category2" value="Biographies">
+                        <label for="category3">Biographies</label>
+                    </div>
+                    
+                    <button type="submit" class="submitBtn">Submit</button>
+                </form>
+                <a href="index.php">Reset Filters</a><br>
+            </div>
+            
+            <div class="grid">
+                <h2>Book List</h2>
+                <hr>
+                <?php
+                if (!$response || $response['information']['ObjectCount'] < 1) {
+                    echo "There are no results...<br>";
+                } else {
+                    foreach ($response['data'] as $row) {
+                        echo "<div class='card'>";
+                            echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
+                            echo "<div class='card-flex'>";
+                                echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
+                                echo "<p>" . $row['author'] . '</p>';
+                                echo "<p>" . $row['pub_year'] . '</p>';
+                                echo "<p>" . $row['genre'] . '</p>';
+                            echo "</div>";
+                        echo "</div>";   
+                    }
                 }
-            }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 

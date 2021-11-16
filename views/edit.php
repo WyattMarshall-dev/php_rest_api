@@ -27,14 +27,17 @@ $data = $response['data'][0];
 </head>
 <body>
     <nav>
-        <h1>Index Page</h1>
-        <div class="container">
-            <a href="index.php">Index</a>
-            <a href="create.php">New Book</a>
+        <div class="container" id="navbar">
+            <div>
+                <h1><a href="index.php" id="logo">Library</a> </h1>   
+            </div>
+            <div>
+                <a href="create.php">Add Book</a>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="main-content">
         <h2>Edit Book</h2>
         <hr>
         <form action='http://localhost/Projects/REST_API/api/post/edit.php' method="POST" enctype="multipart/form-data">
@@ -60,7 +63,7 @@ $data = $response['data'][0];
 
     <footer>
         <div class="container">
-            I am NOT a graphics designer....
+            <p>I am NOT a graphics designer....</p>
         </div>
     </footer>
 
