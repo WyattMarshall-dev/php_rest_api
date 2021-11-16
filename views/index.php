@@ -1,13 +1,12 @@
 <?php
 require_once "../models/curl.php";
 
-$url = 'http://localhost/Projects/REST_API/api/post/index.php';
-$get_data = callAPI('GET', $url, false);
-$response = json_decode($get_data, true);
+$author = isset($_GET['author']) ? rawurlencode($_GET['author']) : '';
+$category = isset($_GET['category']) ? rawurlencode($_GET['category']) : '';
 
-if ($response == NULL) {
-    echo "nothing to display";
-} else {
-    include("components/index.php");
-}
+$response = CURL::GET("/api/post/index.php?author={$author}&category={$category}");
+include("components/index.php");
+
+
+
 ?>

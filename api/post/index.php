@@ -1,16 +1,19 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Tyoe: application/json');
     require_once "../../models/Post.php";
 
-    $result = Post::index();
+    $author = isset($_GET['author']) ? $_GET['author'] : '';
+    $genre = isset($_GET['category']) ? $_GET['category'] : '';
+
+    $result = Post::index($genre, $author);
     $rowCnt = $result->num_rows;
     $res = array();
-    
     $res['information'] = array(
         "endpoint" => "index",
         "author" => "Wyatt Marshall",
-        "Object Count" => $rowCnt
+        "ObjectCount" => $rowCnt
     );
-
     $res['data'] = array();
 
     while ($row = $result->fetch_assoc()) {
@@ -19,8 +22,5 @@
         } 
 
     echo json_encode($res);
-
-
-
 ?>
 

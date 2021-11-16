@@ -9,6 +9,8 @@
 </head>
 <body>
     <nav>
+        <?php 
+        ?>
         <h1>Index Page</h1>
         <div class="container" id="navbar">
             <div>
@@ -17,9 +19,9 @@
             </div>
             <div>
                 <p>Categories: </p>
-                <a href='show.php?category=fiction'>Fiction</a>
-                <a href='show.php?category=non%20Fiction'>Non-Fiction</a>
-                <a href='show.php?category=biographies'>Biographies</a>
+                <a href='index.php?category=fiction'>Fiction</a>
+                <a href='index.php?category=non-Fiction'>Non-Fiction</a>
+                <a href='index.php?category=biographies'>Biographies</a>
             </div>
         </div>
     </nav>
@@ -28,6 +30,9 @@
         <h2>Book List</h2>
         <div class="grid">
             <?php
+            if (!$response || $response['information']['ObjectCount'] < 1) {
+                echo "There are no results...<br>";
+            } else {
                 foreach ($response['data'] as $row) {
                     echo "<div class='card'>";
                         echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
@@ -39,6 +44,7 @@
                         echo "</div>";
                     echo "</div>";   
                 }
+            }
             ?>
         </div>
     </div>

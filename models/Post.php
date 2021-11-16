@@ -3,36 +3,39 @@ require_once "Database.php";
 
 class Post {
 
-    static function index() {
+    static function index($genre = null, $author = null) {
 
         $db = Database::connect();
 
-        $sql = "SELECT * FROM books";
-        $result = $db->query($sql);
-        return $result;
-    }
-
-    static function show($id = null, $genre = null, $author = null) {
-
-        $db = Database::connect();
-
-        if($id) {
-            $sql = "SELECT * FROM books WHERE id=$id";
+        if(!$genre && !$author){
+            $sql = "SELECT * FROM books";
             $result = $db->query($sql);
             return $result;
         }
-
+        if($genre && $author){
+            $sql = "SELECT * FROM books WHERE author='$author' and genre='$genre'";
+            $result = $db->query($sql);
+            return $result;
+        }
         if($genre) {
             $sql = "SELECT * FROM books WHERE genre='$genre'";
             $result = $db->query($sql);
             return $result;
         }
-
         if($author) {
             $sql = "SELECT * FROM books WHERE author='$author'";
             $result = $db->query($sql);
             return $result;
         }
+    }
+
+    static function show($id) {
+
+        $db = Database::connect();
+
+        $sql = "SELECT * FROM books WHERE id=$id";
+        $result = $db->query($sql);
+        return $result;
     }
 
 
@@ -63,7 +66,7 @@ class Post {
     static function store() {
 
         $db = Database::connect();
-        
+
         // $sql = "SELECT * FROM books WHERE id=$id";
         // $result = $db->query($sql);
         // return $result;

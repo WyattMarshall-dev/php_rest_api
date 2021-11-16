@@ -10,19 +10,19 @@ The ultimate goal is to re-create a Laravel/MVC-like platform at least at a basi
 
 ---
 
+### Show all results and filter with query strings
+
+- api/post/index.php
+- api/post/index.php?author='author'
+- api/post/index.php?category='category'
+
+### Show single result with details
+
+- api/post/show.php?id=id
+
 ### Show all results
 
-- api/post/index.php \
-
-### Show results based on query string
-
-- api/post/show.php?category='category' \
-- api/post/show.php?id=id \
-- api/post/show.php?author='author' \
-
-### Show all results
-
-- api/post/index.php \
+- api/post/index.php
 
 ### Delete record by id
 
