@@ -3,30 +3,48 @@ require_once "Database.php";
 
 class Post {
 
-    static function index($genre = null, $author = null) {
+    static function index(...$var) {
 
         $db = Database::connect();
 
-        if(!$genre && !$author){
-            $sql = "SELECT * FROM books";
-            $result = $db->query($sql);
-            return $result;
+        $query = "SELECT * FROM books";
+        if ($var) {
+            $data = $var[0];
+            $keys = array_keys($data);
+
+            for ($i=0; $i < count($keys); $i++) { 
+
+                switch ($i) {
+                    case 0:
+                        $query = $query . " WHERE ";
+                        break;
+                    default:
+                    $query = $query . " AND ";
+                        break;
+                }
+
+                switch ($keys[$i]) {
+                    case 'author':
+                        $query = $query . " {$keys[$i]}='{$data[$keys[$i]]}'";
+                        break;
+                    case 'genre':
+                        $query = $query . " {$keys[$i]}='{$data[$keys[$i]]}'";
+                        break;
+                    case 'year':
+                        $query = $query . " pub_year BETWEEN {$data[$keys[$i]][0]} AND {$data[$keys[$i]][1]}";
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            }
         }
-        if($genre && $author){
-            $sql = "SELECT * FROM books WHERE author='$author' and genre='$genre'";
-            $result = $db->query($sql);
-            return $result;
-        }
-        if($genre) {
-            $sql = "SELECT * FROM books WHERE genre='$genre'";
-            $result = $db->query($sql);
-            return $result;
-        }
-        if($author) {
-            $sql = "SELECT * FROM books WHERE author='$author'";
-            $result = $db->query($sql);
-            return $result;
-        }
+
+    // return $query;
+    $result = $db->query($query);
+    return $result;
+
+        
     }
 
     static function show($id) {

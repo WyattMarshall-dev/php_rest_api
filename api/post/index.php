@@ -3,16 +3,18 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Tyoe: application/json');
     require_once "../../models/Post.php";
 
-    $author = isset($_GET['author']) ? $_GET['author'] : '';
-    $genre = isset($_GET['category']) ? $_GET['category'] : '';
+    $vars = array();
+    $author = isset($_GET['author']) ? $vars['author'] = $_GET['author'] : null;
+    $genre = isset($_GET['category']) ? $vars['genre'] = $_GET['category'] : null;
 
-    $result = Post::index($genre, $author);
+    $result = Post::index($vars);
     $rowCnt = $result->num_rows;
     $res = array();
     $res['information'] = array(
         "endpoint" => "index",
         "author" => "Wyatt Marshall",
-        "ObjectCount" => $rowCnt
+        "ObjectCount" => $rowCnt,
+        $vars
     );
     $res['data'] = array();
 

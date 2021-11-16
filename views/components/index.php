@@ -24,49 +24,28 @@
         <div id="content-wrapper">
             <div>
                 <form id="sidebarForm" action="submit.php" method="post">
-                    <p>Authors:</p>
-                    <div class="input-group">
-                        <input type="radio" name="author" id="all" value="">
-                        <label for="author1">All</label>
-                    </div>
+                <form action="submit.php" method="post">
+                    <?php
+                    require_once "RadioBtn.php";
+                    $button = array(
+                        'All' => 'All',
+                        'author1' => 'JK Rowling',
+                        'author2' => 'Charles Dickens',
+                        'author3' => 'Andrew Roberts',
+                    );
+                    createBtn($button, 'author');
 
-                    <div class="input-group">
-                        <input type="radio" name="author" id="author1" value="JK Rowling">
-                        <label for="author1">JK Rowling</label>
-                    </div>
+                    echo "<br>";
 
-                    <div class="input-group">
-                        <input type="radio" name="author" id="author2" value="Charles Dickens">
-                        <label for="author2">Charles Dickens</label>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="radio" name="author" id="author2" value="Andrew Roberts">
-                        <label for="author3">Andrew Roberts</label>
-                    </div>
-
-
-                    <p>Genres:</p>
-                    <div class="input-group">
-                        <input type="radio" name="category" id="all" value="">
-                        <label for="category1">All</label>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="radio" name="category" id="category1" value="Fiction">
-                        <label for="category1">Fiction</label>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="radio" name="category" id="category2" value="Non-Fiction">
-                        <label for="category2">Non-Fiction</label>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="radio" name="category" id="category2" value="Biographies">
-                        <label for="category3">Biographies</label>
-                    </div>
+                    $button2 = array(
+                        'All' => 'All',
+                        'Fiction' => 'Fiction',
+                        'Non-Fiction' => 'Non-Fiction',
+                        'Biographies' => 'Biographies',
+                    );
+                    createBtn($button2, 'category');
                     
+                    ?>
                     <button type="submit" class="submitBtn">Submit</button>
                 </form>
                 <a href="index.php">Reset Filters</a><br>
