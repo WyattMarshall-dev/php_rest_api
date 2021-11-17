@@ -175,3 +175,26 @@ footer > div > p {
 .input-group {
   margin-bottom: 5px;
 }
+
+.paginator {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: black;
+  margin: 0px 15px;
+}
+
+.paginator:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.paginatorDiv {
+  padding: 15px;
+  /* border: 1px solid red; */
+}
+
+.paginatorDiv > form {
+  border: none;
+}

@@ -58,7 +58,12 @@
                 if (!$response || $response['information']['ObjectCount'] < 1) {
                     echo "There are no results...<br>";
                 } else {
-                    foreach ($response['data'] as $row) {
+                    if(isset($_GET['page'])){
+                        $page = $_GET['page'];
+                    } else {
+                        $page = 0;
+                    }
+                    foreach ($response['data'][$page] as $row) {
                         echo "<div class='card'>";
                             echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
                             echo "<div class='card-flex'>";
@@ -66,6 +71,7 @@
                                 echo "<p>" . $row['author'] . '</p>';
                                 echo "<p>" . $row['pub_year'] . '</p>';
                                 echo "<p>" . $row['genre'] . '</p>';
+                                echo "<p>" . $row['id'] . '</p>';
                             echo "</div>";
                         echo "</div>";   
                     }
@@ -73,6 +79,22 @@
                 ?>
             </div>
         </div>
+        
+    </div>
+    <div class="paginatorDiv">
+    <?php
+        $pageCount = $response['information']['pageCount'];
+        $author = isset($_GET['author']) ? $_GET['author'] : null;
+        $category = isset($_GET['category']) ? $_GET['category'] : null;
+        echo "<form action='submit.php' method='POST'>";
+            echo "<input type='hidden' name='author' value='" . $author . "'>";
+            echo "<input type='hidden' name='category' value='" . $category . "'>";
+        for ($i=0; $i < $pageCount; $i++) {
+            echo "<input type='submit' class='paginator' name='page' value='{$i}'></input>";
+        }
+        echo "</form>";
+
+    ?>
     </div>
 
     <footer>

@@ -10,12 +10,7 @@ header('Content-Tyoe: application/json');
     $result = Post::index($vars);
     $rowCnt = $result->num_rows;
     $res = array();
-    $res['information'] = array(
-        "endpoint" => "index",
-        "author" => "Wyatt Marshall",
-        "ObjectCount" => $rowCnt,
-        $vars
-    );
+
     $res['data'] = array();
 
     while ($row = $result->fetch_assoc()) {
@@ -23,6 +18,23 @@ header('Content-Tyoe: application/json');
         array_push($res['data'], $post_item);
         } 
 
+    // NEW STUFF
+    $res['data'] = array_chunk($res['data'], 2, true);
+
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    } else {
+        $page = 0;
+    }
+
+    $res['information'] = array(
+        "endpoint" => "index",
+        "author" => "Wyatt Marshall",
+        "ObjectCount" => $rowCnt,
+        'pageCount' => count($res['data']),
+    );
+
+    // echo json_encode($res);
     echo json_encode($res);
 ?>
 

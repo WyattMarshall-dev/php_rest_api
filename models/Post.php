@@ -13,7 +13,6 @@ class Post {
             $keys = array_keys($data);
 
             for ($i=0; $i < count($keys); $i++) { 
-
                 switch ($i) {
                     case 0:
                         $query = $query . " WHERE ";

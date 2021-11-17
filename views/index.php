@@ -11,6 +11,7 @@ foreach ($_GET as $key => $value) {
     }
 }
 $response = CURL::GET($url);
+// print_r($response['information']);
 include("components/index.php");
 
 ?>
