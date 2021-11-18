@@ -1,5 +1,6 @@
 <?php
-
+require_once "../models/curl.php";
+CURL::POST('http://localhost/Projects/REST_API/api/post/create.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@
     <div class="container" id="main-content">
         <h2>Submit A Book</h2>
         <hr>
-        <form action='http://localhost/Projects/REST_API/api/post/create.php' method="POST" enctype="multipart/form-data">
+        <form action='<?php $_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
             <input type="text" name="author" id="author" class="form-element" value="" placeholder="Author" > 
             <br> 
             <input type="text" name="isbn" id="isbn" class="form-element" value="" placeholder="ISBN" > 

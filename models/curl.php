@@ -15,5 +15,23 @@ Class CURL {
         $response = json_decode($result, true);
         return $response;
     }
+
+    public static function POST($url, ...$vars) {
+
+        $data = array(
+            'data' => json_encode($_POST)
+        );
+    
+        $requestData = http_build_query($data, '', '&');
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $requestData);
+        curl_setopt($ch, CURLOPT_POST, true);
+        $response = curl_exec($ch);
+        $resultInfo = curl_getinfo($ch);
+        curl_close($ch); 
+        return $response;
+    }
 }
 ?>
