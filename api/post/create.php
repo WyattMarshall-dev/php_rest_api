@@ -1,5 +1,4 @@
 <?php 
-
 require_once "../../models/Post.php";
 require_once "../../models/images.php";
 
@@ -28,7 +27,6 @@ if (isset($_POST)){
         $file
     );
 
-    // echo "Book Creation: " . json_encode($result);
     header("Location: http://localhost/Projects/REST_API/views/index.php");    
 } else {
     echo "Nothing in _POST yet";

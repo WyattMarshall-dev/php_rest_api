@@ -1,8 +1,7 @@
-<?php
-require_once "../models/curl.php";
-CURL::POST('http://localhost/Projects/REST_API/api/post/create.php');
+<?php 
+    require_once "components/session_handler.php";
+    require_once "components/FormClass.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,7 @@ CURL::POST('http://localhost/Projects/REST_API/api/post/create.php');
     <title>PHP REST API</title>
 </head>
 <body>
+    <?php include "components/flashBanner.php"; ?>
     <nav>
         <div class="container" id="navbar">
             <div>
@@ -27,22 +27,55 @@ CURL::POST('http://localhost/Projects/REST_API/api/post/create.php');
     <div class="container" id="main-content">
         <h2>Submit A Book</h2>
         <hr>
-        <form action='<?php $_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
-            <input type="text" name="author" id="author" class="form-element" value="" placeholder="Author" > 
-            <br> 
-            <input type="text" name="isbn" id="isbn" class="form-element" value="" placeholder="ISBN" > 
-            <br>
-            <input type="text" name="title" id="title" class="form-element" value="" placeholder="Title" >  
-            <br>
-            <input type="text" name="pub_year" id="pub_year" class="form-element" value="" placeholder="Publish Year" >  
-            <br>
-            <input type="text" name="genre" id="genre" class="form-element" value="" placeholder="Genre" >  
-            <br>    
-            <p>Select image to upload:</p>
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <br><br>
-            <input type="submit" class="submitBtn" value="Add Book">
-        </form>
+
+        <?php FormClass::FormOpen('components/formSubmit.php', 'formInput'); ?>
+
+        <div class="formDiv">
+            <?php FormClass::FormLabel('author', 'Author', 'formLabel label'); ?>
+            <div>
+                <?php FormClass::FormText('author', 'author', 'text', 'form-element'); ?><br>
+                <?php FormClass::error('author', 'Please Enter An Author') ?>
+            </div>
+        </div> 
+
+        <div class="formDiv">
+            <?php FormClass::FormLabel('isbn', 'isbn', 'formLabel label'); ?>
+            <div>
+                <?php FormClass::FormText('isbn', 'isbn', 'isbn', 'form-element'); ?><br>
+                <?php FormClass::error('isbn', 'Please Enter A Valid ISBN') ?>
+            </div>
+        </div>
+
+        <div class="formDiv">
+            <?php FormClass::FormLabel('title', 'title', 'formLabel label'); ?>
+            <div>
+                <?php FormClass::FormText('title', 'title', 'text', 'form-element'); ?><br>
+                <?php FormClass::error('title', 'Please Enter A Title') ?>
+            </div>
+        </div>
+
+        <div class="formDiv">
+            <?php FormClass::FormLabel('pub_year', 'pub_year', 'formLabel label'); ?>
+            <div>
+                <?php FormClass::FormText('pub_year', 'pub_year', 'text', 'form-element'); ?><br>
+                <?php FormClass::error('pub_year', 'Please Enter The Publish Year') ?>
+            </div>
+        </div>
+
+        <div class="formDiv">
+            <?php FormClass::FormLabel('genre', 'genre', 'formLabel label'); ?>
+            <div>
+                <?php FormClass::FormText('genre', 'genre', 'text', 'form-element'); ?><br>
+                <?php FormClass::error('genre', 'Please Enter A Genre') ?>
+            </div>
+        </div>
+
+        <p>Select image to upload:</p>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <br><br>
+
+        <?php FormClass::FormSubmitBtn('submitBtn'); ?>
+    <?php FormClass::FormClose(); ?>
     </div>
 
     <footer>

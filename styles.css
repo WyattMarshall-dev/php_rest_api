@@ -1,5 +1,4 @@
 * {
-  color: black;
   font-size: 1.1rem;
   box-sizing: border-box;
   margin: 0;
@@ -197,4 +196,27 @@ footer > div > p {
 
 .paginatorDiv > form {
   border: none;
+}
+
+.validate-error {
+  font-size: 0.5em;
+  color: red;
+}
+
+/* FLASH BANNER STYLES */
+
+.flashBanner {
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+.flash-error {
+  display: block;
+  background-color: red;
+  color: white !important;
+}
+.flash-success {
+  display: block;
+  background-color: green;
+  color: black;
 }

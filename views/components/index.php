@@ -1,3 +1,7 @@
+<?php 
+    require_once "components/session_handler.php";
+    require_once "components/FormClass.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
     <title>PHP REST API</title>
 </head>
 <body>
+<?php include "flashBanner.php"; ?>
     <nav>
         <div class="container" id="navbar">
             <div>
@@ -105,3 +110,10 @@
 
 </body>
 </html>
+<?php
+
+unset($_SESSION['errors']);
+unset($_SESSION['success']);
+unset($_SESSION['post']);
+
+?>
