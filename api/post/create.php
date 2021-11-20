@@ -4,16 +4,16 @@ require_once "../../models/images.php";
 
 if (isset($_POST)){
 
-
-    if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["size"] > 0) {
-        $file = basename($_FILES["fileToUpload"]["name"]);
-        move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "../../uploads/{$file}");
-        $image = "../../uploads/{$file}";
+    if (isset($_FILES['test_file']) && $_FILES['test_file']['size'] > 0) {
+        $OgFileName = $_FILES['test_file']['name'];
+        $file = basename($_FILES['test_file']["tmp_name"]);
+        move_uploaded_file($_FILES['test_file']['tmp_name'], "../../uploads/{$OgFileName}");
+        $image = "../../uploads/{$OgFileName}";
         $im = imagecreatefromjpeg($image);
 
-        resize_image($im, $image, $file);
+        resize_image($im, $image, $OgFileName);
     } else {
-        $file = "default.jpg";
+        $OgFileName = "default.jpg";
     }
 
     $decoded = json_decode($_POST['data'], true);
@@ -24,10 +24,9 @@ if (isset($_POST)){
         $decoded['title'],
         $decoded['pub_year'],
         $decoded['genre'],
-        $file
+        $OgFileName
     );
-
-    header("Location: http://localhost/Projects/REST_API/views/index.php");    
+  
 } else {
     echo "Nothing in _POST yet";
 }

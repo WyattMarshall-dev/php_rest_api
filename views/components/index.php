@@ -38,8 +38,8 @@
                         'author2' => 'Charles Dickens',
                         'author3' => 'Andrew Roberts',
                     );
-                    createBtn($button, 'author');
-
+                    createBtn($button, 'author', 'radioBtn');
+ 
                     echo "<br>";
 
                     $button2 = array(
@@ -48,7 +48,7 @@
                         'Non-Fiction' => 'Non-Fiction',
                         'Biographies' => 'Biographies',
                     );
-                    createBtn($button2, 'category');
+                    createBtn($button2, 'category', 'radioBtn');
                     
                     ?>
                     <button type="submit" class="submitBtn">Submit</button>

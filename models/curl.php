@@ -18,16 +18,25 @@ Class CURL {
 
     public static function POST($url, ...$vars) {
 
+        if (isset($_FILES['fileToUpload']) && $_FILES['fileToUpload']["size"] > 0) {
+            $file = basename($_FILES['fileToUpload']["name"]);
+            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "../../uploads/{$file}");
+        } else {
+            $file = "default.jpg";
+        }
+
+        $curlFileName = 'http://localhost/projects/REST_API/uploads/' . $file;
+        $cFile = curl_file_create($curlFileName, 'image/jpeg', $file);
+
         $data = array(
-            'data' => json_encode($_POST)
+            'data' => json_encode($_POST),
+            'test_file' => $cFile
         );
-    
-        $requestData = http_build_query($data, '', '&');
         
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $requestData);
-        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $response = curl_exec($ch);
         $resultInfo = curl_getinfo($ch);
         curl_close($ch); 

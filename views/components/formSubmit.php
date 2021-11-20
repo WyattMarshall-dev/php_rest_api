@@ -14,7 +14,7 @@ require_once "../../models/curl.php";
             $sucArr[$key] = 'Success';
         }
     }
-    // echo $_SERVER['HTTP_REFERER'];
+    
     if ($errArr) {
         unset($_SESSION['success']);
         $_SESSION['errors'] = $errArr;
@@ -25,8 +25,6 @@ require_once "../../models/curl.php";
     } else {
         unset($_SESSION['errors']);
         $_SESSION['success'] = 'Form Submitted Successfully!';
-        // $redir =  $_SERVER['HTTP_REFERER'];
-        // header("Location: $redir");
         CURL::POST('http://localhost/Projects/REST_API/api/post/create.php');
         header("Location: http://localhost/projects/REST_API/views/index.php");
     }

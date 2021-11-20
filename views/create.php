@@ -72,7 +72,7 @@
 
         <p>Select image to upload:</p>
         <input type="file" name="fileToUpload" id="fileToUpload">
-        <br><br>
+        <br><br> 
 
         <?php FormClass::FormSubmitBtn('submitBtn'); ?>
     <?php FormClass::FormClose(); ?>

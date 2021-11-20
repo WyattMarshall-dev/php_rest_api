@@ -1,4 +1,4 @@
 <?php
-    session_id('Sesh-Bitch');
+    session_id('Guest');
     session_start();
 ?>

@@ -3,7 +3,7 @@
 class FormClass {
 
     public static function FormOpen($submit, $classes){
-        echo "<form action={$submit} method='post' class='{$classes}'>";
+        echo "<form action={$submit} method='post' class='{$classes}' enctype='multipart/form-data'>";
     }
 
     public static function FormLabel($id, $label, $classes){

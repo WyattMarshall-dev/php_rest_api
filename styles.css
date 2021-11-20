@@ -167,8 +167,14 @@ footer > div > p {
   color: white;
 }
 
+/* FILTERS */
+
 #sidebarForm {
   width: 200px;
+}
+
+.radioBtn {
+  color: black;
 }
 
 .input-group {
