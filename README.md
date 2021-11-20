@@ -1,6 +1,5 @@
 # PHP REST API
 
-**PLEASE READ**
 If you have questions or comments about this respository please contact me on instagram @_wyattmarshall_ or by email wyatt_marshall@hotmail.com
 
 Simple REST API project built in using php and curl. \

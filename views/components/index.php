@@ -31,6 +31,7 @@
                 <form id="sidebarForm" action="submit.php" method="post">
                 <form action="submit.php" method="post">
                     <?php
+                    // Creates radio button groups for filtering results
                     require_once "RadioBtn.php";
                     $button = array(
                         'All' => 'All',
@@ -57,17 +58,24 @@
             </div>
             
             <div class="grid">
-                <h2>Book List</h2>
-                <hr>
-                <?php
-                if (!$response || $response['information']['ObjectCount'] < 1) {
-                    echo "There are no results...<br>";
-                } else {
+                <div>
+                    <h2>Book List</h2>
+
+                    <?php 
                     if(isset($_GET['page'])){
                         $page = $_GET['page'];
                     } else {
                         $page = 0;
                     }
+                    // displays how many results are being shown out of total result returned from DB
+                    echo "<small>" . $response['information']['ObjectCount'] . " Results (showing " . (array_key_first($response['data'][$page]) + 1) . "-" . (array_key_last($response['data'][$page]) + 1) . " of " . $response['information']['ObjectCount'] . ")</small>"; 
+                    ?>
+                </div>
+                <hr>
+                <?php
+                if (!$response || $response['information']['ObjectCount'] < 1) {
+                    echo "There are no results...<br>";
+                } else {
                     foreach ($response['data'][$page] as $row) {
                         echo "<div class='card'>";
                             echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' width='400px' alt=''>";
@@ -88,6 +96,7 @@
     </div>
     <div class="paginatorDiv">
     <?php
+    // Pagination
         $pageCount = $response['information']['pageCount'];
         $author = isset($_GET['author']) ? $_GET['author'] : null;
         $category = isset($_GET['category']) ? $_GET['category'] : null;
@@ -111,7 +120,7 @@
 </body>
 </html>
 <?php
-
+// _SESSION variables are all unset to remove flash messages in FlashBanner 
 unset($_SESSION['errors']);
 unset($_SESSION['success']);
 unset($_SESSION['post']);

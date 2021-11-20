@@ -1,4 +1,5 @@
 <?php
+// Banner to appear at top of page with Flash messages from Session variable
 
 if (isset($_SESSION['errors'])) {
     $flash = "<p>Form Failed to Submit! Please Check your input</p>";

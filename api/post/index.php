@@ -19,7 +19,7 @@ header('Content-Tyoe: application/json');
         } 
 
     // NEW STUFF
-    $res['data'] = array_chunk($res['data'], 2, true);
+    $res['data'] = array_chunk($res['data'], 4, true);
 
     if(isset($_GET['page'])){
         $page = $_GET['page'];

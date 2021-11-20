@@ -3,6 +3,7 @@ require_once "session_handler.php";
 require_once "../../models/curl.php";
 
 // Validate Form Contents
+// On Error, this passes the _POST values from the form back to the page through the _SESSIONS['post'] variable
     $errArr = [];
     $sucArr = [];
     $postArr = [];

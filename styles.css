@@ -1,8 +1,13 @@
+/* Universal Styling */
 * {
   font-size: 1.1rem;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+small {
+  font-size: 0.7em;
 }
 
 body {
@@ -24,16 +29,27 @@ h2 {
   margin: 1rem 0;
 }
 
-#logo {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
+a:hover {
+  color: blue;
 }
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* Main Nav Section */
 
 nav {
   background-color: #444;
   padding: 20px;
   margin-bottom: 30px;
+}
+
+#logo {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
 }
 
 #navbar a,
@@ -46,14 +62,7 @@ nav {
   justify-content: space-between;
 }
 
-a:hover {
-  color: blue;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-}
+/* Main Page Content */
 
 #main-content {
   flex-grow: 1;
@@ -66,6 +75,42 @@ a:hover {
   justify-content: space-between;
   gap: 25px;
 }
+
+.grid {
+  display: grid;
+  width: 100%;
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-gap: 15px; */
+}
+
+.card {
+  /* border: 1px solid black; */
+  /* border-top: 2px solid #222; */
+  border-bottom: 2px solid #222;
+  background-color: #ccc;
+  padding: 20px;
+  /* border-radius: 15px; */
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card > img {
+  padding: 0px 25px;
+}
+
+.card-flex {
+}
+
+.card:first-child {
+  border-top: 2px solid #222;
+}
+
+.card:nth-child(odd) {
+  background-color: #aaa;
+}
+
+/* Form Styling */
 
 .error-page {
   display: flex;
@@ -123,39 +168,7 @@ input:focus-visible {
   outline: 3px solid darkblue;
 }
 
-.grid {
-  display: grid;
-  width: 100%;
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-gap: 15px; */
-}
-
-.card {
-  /* border: 1px solid black; */
-  /* border-top: 2px solid #222; */
-  border-bottom: 2px solid #222;
-  background-color: #ccc;
-  padding: 20px;
-  /* border-radius: 15px; */
-  min-height: 200px;
-  display: flex;
-  flex-direction: row;
-}
-
-.card > img {
-  padding: 0px 25px;
-}
-
-.card-flex {
-}
-
-.card:first-child {
-  border-top: 2px solid #222;
-}
-
-.card:nth-child(odd) {
-  background-color: #aaa;
-}
+/* Footer Styling */
 
 footer {
   margin-top: 50px;
@@ -181,6 +194,8 @@ footer > div > p {
   margin-bottom: 5px;
 }
 
+/* Pagination */
+
 .paginator {
   border: none;
   padding: 10px 20px;
@@ -203,6 +218,8 @@ footer > div > p {
 .paginatorDiv > form {
   border: none;
 }
+
+/* Validator */
 
 .validate-error {
   font-size: 0.5em;

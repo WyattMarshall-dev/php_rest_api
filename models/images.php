@@ -1,5 +1,6 @@
 <?php
-
+// Determines if uploaded image is landscape, portrait or square
+// Passes image dimensions onto img_upload to resize
 function resize_image($im, $image, $file) {
     switch (imagesx($im) <=> imagesy($im)) {
         case '-1':
@@ -23,7 +24,7 @@ function resize_image($im, $image, $file) {
 
     imagedestroy($im);
 }
-
+// Resizes Uploaded Image to 2x3 Aspect Ratio [Standard Movie Poster]
 function img_upload($x, $y, $image, $file){
     $im = imagecreatefromjpeg($image);
     $x_center = (imagesx($im) / 2) - ($x / 2);
