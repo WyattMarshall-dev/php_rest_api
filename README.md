@@ -1,7 +1,7 @@
 # PHP REST API
 
-This site may be ugly but it's mighty! \
-I'll fix the CSS later.
+**PLEASE READ**
+If you have questions or comments about this respository please contact me on instagram @_wyattmarshall_ or by email wyatt_marshall@hotmail.com
 
 Simple REST API project built in using php and curl. \
 The ultimate goal is to re-create a Laravel/MVC-like platform at least at a basic level.
