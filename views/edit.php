@@ -19,14 +19,14 @@ $data = $response['data'][0];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
     <title>PHP REST API</title>
 </head>
 <body>
 <?php 
-    include "components/flashBanner.php";
     include "components/navbar.php"; 
+    include "components/flashBanner.php";
 ?>
 
     <div class="container" id="main-content">

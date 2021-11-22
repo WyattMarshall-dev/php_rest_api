@@ -1,0 +1,91 @@
+/* Form Styling */
+
+.error-page {
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid red; */
+  height: 101vh;
+  text-align: center;
+}
+form {
+  margin: auto;
+  width: fit-content;
+  color: white;
+}
+
+.form-element {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 10px;
+  outline: none;
+  border: none;
+  margin: 10px 0px;
+}
+
+.formLabel {
+  color: black;
+}
+
+input {
+  color: white;
+}
+
+input:focus-visible {
+  outline: none;
+  color: white;
+}
+
+.submitBtn {
+  background-color: blue;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 25px;
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.submitBtn:hover {
+  background-color: darkblue;
+  cursor: pointer;
+}
+
+.submitBtn:focus {
+  background-color: darkblue;
+  outline-offset: 5px;
+  outline: 3px solid darkblue;
+}
+
+/* FILTERS */
+
+.filter-container {
+  margin: auto;
+  width: fit-content;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+#sidebarForm {
+  display: block;
+  min-width: min-content;
+}
+
+.filter-wrapper {
+  display: flex;
+  gap: 25px;
+}
+
+.btn-group {
+  min-width: fit-content;
+}
+
+.radioBtn {
+  color: black;
+}
+
+.input-group {
+  margin-bottom: 5px;
+}

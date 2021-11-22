@@ -11,10 +11,10 @@
             <a href="index.php" class='logo-link'>LIBRARY</a>
         </div>
         <div class="navLinks" >
+            <a href="index.php" class="nav-link">Home</a>
             <a href="create.php" class="nav-link">Add Book</a>
             <span class="nav-link">Link 2</span>
             <span class="nav-link">Link 3</span>
-            <span class="nav-link">Link 4</span>
         </div>
     </div>
 
@@ -22,10 +22,10 @@
     <div id="ResponsiveContainer" class="mobile-nav">
         <div id="ResDiv">
             <div>
+                <a href="index.php" class="res-nav-link">Home</a>
                 <a href="create.php" class="res-nav-link">Add Book</a>
                 <span class="res-nav-link">Link 2</span>
                 <span class="res-nav-link">Link 3</span>
-                <span class="res-nav-link">Link 4</span>
             </div>
         </div>
     </div>

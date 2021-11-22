@@ -1,0 +1,17 @@
+/* FLASH BANNER STYLES */
+
+.flashBanner {
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+.flash-error {
+  display: block;
+  background-color: red;
+  color: white !important;
+}
+.flash-success {
+  display: block;
+  background-color: green;
+  color: black;
+}

@@ -7,8 +7,10 @@
         echo "<form action='submit.php' method='POST'>";
             echo "<input type='hidden' name='author' value='" . $author . "'>";
             echo "<input type='hidden' name='category' value='" . $category . "'>";
+
         for ($i=0; $i < $pageCount; $i++) {
-            echo "<input type='submit' class='paginator' name='page' value='{$i}'></input>";
+            $page = $i + 1;
+            echo "<input type='submit' class='paginator' name='page' value='{$page}'></input>";
         }
         echo "</form>";
 

@@ -1,0 +1,6 @@
+/* Validator */
+
+.validate-error {
+  font-size: 0.5em;
+  color: red;
+}

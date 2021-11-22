@@ -1,0 +1,25 @@
+/* Pagination */
+
+.paginatorDiv {
+  margin-top: 10px;
+  margin-left: 0;
+  text-align: left;
+}
+
+.paginator {
+  border: none;
+  padding: 7px 14px;
+  color: black;
+  border: 1px solid #e0e0e0;
+}
+
+.paginator:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.paginatorDiv > form {
+  border: none;
+  margin-left: 0;
+}

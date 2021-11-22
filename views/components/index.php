@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
     <title>PHP REST API</title>
 </head>
 <body>
-<?php 
-    include "flashBanner.php"; 
+<?php  
     include "navbar.php";
+    include "flashBanner.php";
 ?>
 
     
@@ -28,7 +28,7 @@
                     // Creates radio button groups for filtering results
                     require_once "RadioBtn.php";
                     echo "<div class='filter-wrapper' >";
-                        echo "<div>";
+                        echo "<div class='btn-group'>";
                             $button = array(
                                 'All' => 'All',
                                 'author1' => 'JK Rowling',
@@ -39,7 +39,7 @@
                         echo "</div>";
                     
 
-                        echo "<div>";
+                        echo "<div class='btn-group'>";
                             $button2 = array(
                                 'All' => 'All',
                                 'Fiction' => 'Fiction',
@@ -61,7 +61,7 @@
 
                     <?php 
                     if(isset($_GET['page'])){
-                        $page = $_GET['page'];
+                        $page = $_GET['page'] - 1 ;
                     } else {
                         $page = 0;
                     }
@@ -79,21 +79,21 @@
                             echo "<img src='http://localhost/Projects/REST_API/uploads/{$row["thumbnail"]}' class='card-img' alt=''>";
                             echo "<div class='card-flex'>";
                                 echo "<a href=" . "show.php?id={$row['id']}" . ">" . $row['title'] ."</a><br>";
-                                echo "<p>" . $row['author'] . '</p>';
-                                echo "<p>" . $row['pub_year'] . '</p>';
-                                echo "<p>" . $row['genre'] . '</p>';
-                                echo "<p>" . $row['id'] . '</p>';
+                                echo "<p>Author: " . $row['author'] . '</p>';
+                                echo "<p>Year: " . $row['pub_year'] . '</p>';
+                                echo "<p>Genre: " . $row['genre'] . '</p>';
+                                echo "<p>ID: " . $row['id'] . '</p>';
+                                echo "<p>ISBN: " . $row['isbn'] . '</p>';
                             echo "</div>";
                         echo "</div>";   
                     }
                 }
+                
                 ?>
             </div>
         </div>
-        
+        <?php include "components/paginator.php"; ?>
     </div>
-
-    <?php include "components/paginator.php"; ?>
 
     <?php include "footer.php"; ?>
 

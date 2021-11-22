@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
     <title>PHP REST API</title>
 </head>
 <body>
 <?php 
-    include "components/flashBanner.php";
     include "components/navbar.php"; 
+    include "components/flashBanner.php";
 ?>
 
 
@@ -34,7 +34,7 @@
         </div> 
 
         <div class="formDiv">
-            <?php FormClass::FormLabel('isbn', 'isbn', 'formLabel label'); ?>
+            <?php FormClass::FormLabel('isbn', 'ISBN', 'formLabel label'); ?>
             <div>
                 <?php FormClass::FormText('isbn', 'isbn', 'isbn', 'form-element'); ?><br>
                 <?php FormClass::error('isbn', 'Please Enter A Valid ISBN') ?>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="formDiv">
-            <?php FormClass::FormLabel('title', 'title', 'formLabel label'); ?>
+            <?php FormClass::FormLabel('title', 'Title', 'formLabel label'); ?>
             <div>
                 <?php FormClass::FormText('title', 'title', 'text', 'form-element'); ?><br>
                 <?php FormClass::error('title', 'Please Enter A Title') ?>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="formDiv">
-            <?php FormClass::FormLabel('pub_year', 'pub_year', 'formLabel label'); ?>
+            <?php FormClass::FormLabel('pub_year', 'Year', 'formLabel label'); ?>
             <div>
                 <?php FormClass::FormText('pub_year', 'pub_year', 'text', 'form-element'); ?><br>
                 <?php FormClass::error('pub_year', 'Please Enter The Publish Year') ?>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="formDiv">
-            <?php FormClass::FormLabel('genre', 'genre', 'formLabel label'); ?>
+            <?php FormClass::FormLabel('genre', 'Genre', 'formLabel label'); ?>
             <div>
                 <?php FormClass::FormText('genre', 'genre', 'text', 'form-element'); ?><br>
                 <?php FormClass::error('genre', 'Please Enter A Genre') ?>
