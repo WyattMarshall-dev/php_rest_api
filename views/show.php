@@ -1,5 +1,6 @@
 <?php
 require_once "../models/curl.php";
+require_once "components/session_handler.php";
 
 if (isset($_GET['id'])) {
     $response = CURL::GET("/api/post/show.php?id={$_GET['id']}");

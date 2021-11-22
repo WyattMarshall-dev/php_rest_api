@@ -9,20 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
     <title>PHP REST API</title>
 </head>
 <body>
-    <?php include "components/flashBanner.php"; ?>
-    <nav>
-        <div class="container" id="navbar">
-            <div>
-                <h1><a href="index.php" id="logo">Library</a> </h1>     
-            </div>
-            <div>
-                <a href="create.php">Add Book</a>
-            </div>
-        </div>
-    </nav>
+<?php 
+    include "components/flashBanner.php";
+    include "components/navbar.php"; 
+?>
+
 
     <div class="container" id="main-content">
         <h2>Submit A Book</h2>
@@ -78,11 +73,9 @@
     <?php FormClass::FormClose(); ?>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>I am NOT a graphics designer....</p>
-        </div>
-    </footer>
+<?php 
+    include "components/footer.php";
+?>
 
 </body>
 </html>
