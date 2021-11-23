@@ -3,10 +3,7 @@
 Class CURL {
 
     public static function GET($url) {
-        $base = "http://" . $_SERVER['SERVER_NAME'] . '/Projects/REST_API';
-        $uri = $base . $url;
-        // print_r($uri);
-        // die();
+        $uri = "http://" . $_SERVER['SERVER_NAME'] . '/Projects/REST_API' . $url;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $uri);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
