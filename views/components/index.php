@@ -1,7 +1,3 @@
-<?php 
-    require_once "components/session_handler.php";
-    require_once "components/FormClass.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js" defer></script>
+    <script src="../js/checkbox.js" defer></script>
     <title>PHP REST API</title>
 </head>
 <body>
@@ -18,7 +15,6 @@
     include "flashBanner.php";
 ?>
 
-    
     <div class="container" id="main-content">
 
         <div id="content-wrapper">
@@ -26,27 +22,41 @@
                 <form id="sidebarForm" action="submit.php" method="post">
                     <?php
                     // Creates radio button groups for filtering results
-                    require_once "RadioBtn.php";
                     echo "<div class='filter-wrapper' >";
+                    
+                        $button = array(
+                            'All' => 'All',
+                            'author1' => 'JK Rowling',
+                            'author2' => 'Charles Dickens',
+                            'author3' => 'Andrew Roberts',
+                        );
                         echo "<div class='btn-group'>";
-                            $button = array(
-                                'All' => 'All',
-                                'author1' => 'JK Rowling',
-                                'author2' => 'Charles Dickens',
-                                'author3' => 'Andrew Roberts',
-                            );
+                            echo "<p>Author</p>";
                             createBtn($button, 'author', 'radioBtn');
                         echo "</div>";
                     
 
+                        $button2 = array(
+                            'All' => 'All',
+                            'Fiction' => 'Fiction',
+                            'Non-Fiction' => 'Non-Fiction',
+                            'Biographies' => 'Biographies',
+                        );
                         echo "<div class='btn-group'>";
-                            $button2 = array(
-                                'All' => 'All',
-                                'Fiction' => 'Fiction',
-                                'Non-Fiction' => 'Non-Fiction',
-                                'Biographies' => 'Biographies',
-                            );
+                            echo "<p>Genre</p>";
                             createBtn($button2, 'category', 'radioBtn');
+                        echo "</div>";
+
+                        // Create Checkboxes from array data in checkbox.php
+                        $checkboxes = array(
+                            '1900' => '1900',
+                            '1950' => '1950',
+                            '2000' => '2000',
+                            '2020' => '2020',
+                        );
+                        echo "<div class='btn-group'>";
+                            echo "<p>Year (from - to)</p>";
+                            createCheckbox($checkboxes, 'year[]', 'radioBtn');
                         echo "</div>";
                     echo "</div>";
                     ?>
@@ -60,16 +70,12 @@
                     <h2>Book List</h2>
 
                     <?php 
-                    if(isset($_GET['page'])){
-                        $page = $_GET['page'] - 1 ;
-                    } else {
-                        $page = 0;
-                    }
-                    // displays how many results are being shown out of total result returned from DB
+                    $page = isset($_GET['page']) ? $_GET['page'] - 1 : 0;
+
+                    // displays how many results are being shown out of total returned from DB
                     echo "<small>" . $response['information']['ObjectCount'] . " Results (showing " . (array_key_first($response['data'][$page]) + 1) . "-" . (array_key_last($response['data'][$page]) + 1) . " of " . $response['information']['ObjectCount'] . ")</small>"; 
                     ?>
                 </div>
-                <hr>
                 <?php
                 if (!$response || $response['information']['ObjectCount'] < 1) {
                     echo "There are no results...<br>";
@@ -93,6 +99,7 @@
             </div>
         </div>
         <?php include "components/paginator.php"; ?>
+        <?php include "components/mobile-paginator.php"; ?>
     </div>
 
     <?php include "footer.php"; ?>

@@ -19,6 +19,10 @@
 /* Validator */
 @import url("validator.css");
 
+.check-group {
+  margin: 0;
+}
+
 /* Universal Styling */
 * {
   font-size: 1.1rem;
@@ -84,6 +88,16 @@ a:hover {
 /* ----------------  Responsive  ---------------- */
 /* ////////////////////////////////////////////// */
 
+@media only screen and (max-width: 1024px) {
+  .mobile-paginator {
+    display: flex;
+  }
+
+  .paginatorDiv {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 1024px) and (max-resolution: 3dppx) {
   .mainNavContainer {
     height: 5rem;
@@ -131,7 +145,19 @@ a:hover {
     height: fit-content;
   }
 
+  .main-content {
+    width: auto;
+  }
+
   .container {
-    width: 1024px;
+    max-width: 1024px;
+  }
+
+  .mobile-paginator {
+    display: none;
+  }
+
+  .paginatorDiv {
+    display: block;
   }
 }

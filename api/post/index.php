@@ -6,6 +6,7 @@ header('Content-Tyoe: application/json');
     $vars = array();
     $author = isset($_GET['author']) ? $vars['author'] = $_GET['author'] : null;
     $genre = isset($_GET['category']) ? $vars['genre'] = $_GET['category'] : null;
+    $year = isset($_GET['year']) ? $vars['year'] = $_GET['year'] : null;
 
     $result = Post::index($vars);
     $rowCnt = $result->num_rows;

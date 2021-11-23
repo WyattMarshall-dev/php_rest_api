@@ -13,8 +13,6 @@
         <div class="navLinks" >
             <a href="index.php" class="nav-link">Home</a>
             <a href="create.php" class="nav-link">Add Book</a>
-            <span class="nav-link">Link 2</span>
-            <span class="nav-link">Link 3</span>
         </div>
     </div>
 

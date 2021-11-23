@@ -7,10 +7,17 @@
 }
 
 .paginator {
-  border: none;
   padding: 7px 14px;
   color: black;
   border: 1px solid #e0e0e0;
+}
+
+#pageIcons :first-child {
+  border-radius: 7px 0px 0px 7px;
+}
+
+#pageIcons :last-child {
+  border-radius: 0px 7px 7px 0px;
 }
 
 .paginator:hover {
@@ -22,4 +29,26 @@
 .paginatorDiv > form {
   border: none;
   margin-left: 0;
+}
+
+/* MOBILE PAGINATOR */
+.mobile-paginator {
+  display: flex;
+  padding: 5px 0px;
+}
+
+#nextPage {
+  margin-right: 0%;
+}
+
+#previousPage {
+  margin-left: 0%;
+}
+
+.l-mobile-paginator {
+  border-radius: 7px 0px 0px 7px;
+}
+
+.r-mobile-paginator {
+  border-radius: 0px 7px 7px 0px;
 }

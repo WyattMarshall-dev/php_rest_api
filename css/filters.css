@@ -82,8 +82,18 @@ input:focus-visible {
   min-width: fit-content;
 }
 
+.btn-group > p {
+  color: black;
+  font-weight: bold;
+}
+
 .radioBtn {
   color: black;
+}
+
+label:hover {
+  color: blue;
+  cursor: pointer;
 }
 
 .input-group {
